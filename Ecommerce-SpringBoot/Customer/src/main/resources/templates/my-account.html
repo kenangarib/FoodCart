@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<!-- Basic -->
+<head th:replace="fragments::head"></head>
+
+<body>
+<!-- Start Main Top -->
+<div th:replace="fragments::main-top">
+
+</div>
+<!-- End Main Top -->
+
+
+<!-- Start Main Top -->
+<header th:replace="fragments::main-header">
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div th:replace="fragments::top-search">
+</div>
+<!-- End Top Search -->
+
+<!-- Start All Title Box -->
+<div th:replace="fragments::slider">
+</div>
+<!-- End All Title Box -->
+
+<!-- Start My Account  -->
+<div class="container">
+    <div class="row my-2">
+        <div class="col-lg-4 order-lg-1 text-center">
+            <img src="images/profile.jpeg" width="200px" height="200px" class="mx-auto img-fluid img-circle d-block"
+                 alt="Profile picture"/>
+        </div>
+        <div class="col-lg-8 order-lg-2" th:object="${customer}">
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="profile">
+                    <span>
+                        <h1><b th:text="*{firstName + ' ' +  lastName}"></b> • <b
+                                th:text="*{'@' + username}"></b></h1>
+                    </span>
+                    <span style="text-align: right"><a style="color: #595959; font-weight: bold" th:href="@{/profile}">Edit Profile <i style="color: #595959; font-weight: bold" class="fa fa-pen"></i></a> </span>
+                    <h2><span style="font-size: medium;"></span></h2>
+                    <hr/>
+                    <span><b><i style="color: #595959; font-weight: bold" class="fa fa-phone"></i> Phone Number: </b></span><span th:text="*{phoneNumber}"></span>
+                    <div></div>
+                    <span><b><i style="color: #595959; font-weight: bold" class="fa fa-address-card"></i> Address: </b></span><span th:text="*{address + ','}"></span>
+                    <span th:text="${customer.city}"></span>
+
+                    <h4></h4>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<div class="my-account-box-main">
+    <div class="container">
+        <div class="my-account-page">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="account-box">
+
+
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <a th:href="@{/orders}"> <i class="fa fa-shopping-cart"></i> </a>
+                            </div>
+                            <div class="service-desc">
+                                <h4>Your Orders</h4>
+                                <p>You can find your order list in here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="account-box">
+
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <a th:href="@{/wishlist}"><i class="fa fa-heart"></i> </a>
+                            </div>
+                            <div class="service-desc">
+                                <h4>Wishlist</h4>
+                                <p>You can find your order list in here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End My Account -->
+
+<!-- Start Feed  -->
+<div th:replace="fragments::instagram-box">
+</div>
+
+<!-- End Feed  -->
+
+
+<!-- Start Footer  -->
+<footer th:replace="fragments::footer"></footer>
+
+<!-- ALL JS FILES -->
+<div th:replace="fragments::script"></div>
+</body>
+
+</html>
